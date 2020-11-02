@@ -1,0 +1,31 @@
+﻿@model OnlineUserToDoList.Data.Entities.ToDoList
+<div class="row">
+    <div class="col-md-12">
+        <section id="addForm">
+            <div class="form-horizontal">
+                @Html.HiddenFor(m => m.Id , new {id="hdId" })
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.TodoTitle, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.TodoTitle, new { @class = "form-control", id = "txtTodoTitle" })
+                        @Html.ValidationMessageFor(m => m.TodoTitle, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.DueDate, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.DueDate,"{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control", id = "txtDueDate" })
+                        @Html.ValidationMessageFor(m => m.DueDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="button" value="Update" class="btn btn-default" onclick="UpdateItem();" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
