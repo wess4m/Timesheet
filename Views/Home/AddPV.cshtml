@@ -1,0 +1,42 @@
+﻿@model Timesheet.Models.AddTimesheetViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <section id="addForm">
+            <form id="frmAdd" action="/additem/" method="post">
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.EmployeeNumber, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(m => m.EmployeeNumber, new SelectList(Model.EmployeeList, "EmployeeNumber", "Name", Model.EmployeeNumber), "-- Please select --", new { @Id = "lstEmployee", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.SelectedMonth, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(m => m.SelectedMonth, new SelectList(Model.MonthList), "-- Please select --", new { @class = "form-control", id = "lstMonth" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.WorkingHours, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.WorkingHours, new { @class = "form-control", id = "txtWorkingHours", value="" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-10">
+                            <input type="submit" value="Add/Update" class="btn btn-group" />
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $('form#frmAdd').removeData("validator");
+                    $('form#frmAdd').removeData("unobtrusiveValidation");
+                    $.validator.unobtrusive.parse($('form#frmAdd'));
+                    $('#txtWorkingHours').val('');
+                </script>
+            </form>
+        </section>
+    </div>
+</div>

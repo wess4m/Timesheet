@@ -1,0 +1,27 @@
+﻿@model Timesheet.Models.ImportFromExcelViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <section id="addForm">
+            <div class="form-horizontal">
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data", id="frmImport" }))
+                {
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(x => x.ExcelFile, new { type = "file", @class = "form-control", accept = ".xls,.xlsx", id = "flTimesheet" })
+                        </div>
+                        <div class="col-md-2">
+                            <input type="submit" value="Import" class="btn btn-group" />
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $('form#frmImport').removeData("validator");
+                        $('form#frmImport').removeData("unobtrusiveValidation");
+                        $.validator.unobtrusive.parse($('form#frmImport'));
+                    </script>
+                }
+            </div>
+        </section>
+    </div>
+</div>

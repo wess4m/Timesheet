@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace OnlineUserToDoList
+namespace Timesheet
 {
     public class RouteConfig
     {
@@ -15,37 +15,27 @@ namespace OnlineUserToDoList
             routes.MapRoute(
                 name: "GetAddItem",
                 url: "getadditem/",
-                defaults: new { controller = "ToDoList", action = "AddPV" }
+                defaults: new { controller = "Home", action = "AddPV" }
             );
             routes.MapRoute(
                 name: "AddItem",
                 url: "additem/",
-                defaults: new { controller = "ToDoList", action = "AddPV" }
+                defaults: new { controller = "Home", action = "AddPV" }
             );
             routes.MapRoute(
                 name: "GetList",
                 url: "getlist/",
-                defaults: new { controller = "ToDoList", action = "GetList" }
+                defaults: new { controller = "Home", action = "GetList" }
             );
             routes.MapRoute(
                 name: "MarkDone",
                 url: "markdone/",
-                defaults: new { controller = "ToDoList", action = "MarkDone" }
+                defaults: new { controller = "Home", action = "MarkDone" }
             );
             routes.MapRoute(
-                name: "Delete",
-                url: "delete/",
-                defaults: new { controller = "ToDoList", action = "Delete" }
-            );
-            routes.MapRoute(
-                name: "GetUpdateItem",
-                url: "getupdateitem/{Id}/",
-                defaults: new { controller = "ToDoList", action = "UpdatePV" }
-            );
-            routes.MapRoute(
-                name: "UpdateItem",
-                url: "updateitem/",
-                defaults: new { controller = "ToDoList", action = "UpdatePV" }
+                name: "GetImport",
+                url: "getimport/",
+                defaults: new { controller = "Home", action = "ImportFromExcelPV" }
             );
             routes.MapRoute(
                 name: "Default",

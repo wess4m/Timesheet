@@ -1,18 +1,21 @@
 ﻿@{
-    ViewBag.Title = "ToDos List";
+    ViewBag.Title = "Timesheet";
 }
 
     <div class="jumbotron" style="background-color:white;">
-        <button type="button" class="btn btn-primary btn-lg" onclick="GetAddItem();">Add New Item</button>
-
+        <div style="font-size:16px;">
+            <a href="javascript:void(0);" onclick="GetAddItem();">Add/Update Timesheet</a> |
+            <a href="javascript:void(0);" onclick="GetImport();">Import Timesheet Bulk</a>
+        </div>
         <div id="tdList">
             <div id="dvData" style="border:1px solid black; padding:15px;margin-top:20px;">
                 <table id="dataTable">
                     <thead>
                         <tr>
-                            <th>Record Number</th>
-                            <th>Todo Title</th>
-                            <th>Action Column</th>
+                            <th>Employee Number</th>
+                            <th>Employee Name</th>
+                            <th>Month</th>
+                            <th>Working Hours</th>
                         </tr>
                     </thead>
                 </table>
@@ -26,10 +29,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Add/Edit to do list item</h4>
+                <h4 class="modal-title">Manage Timesheet</h4>
             </div>
             <div class="modal-body">
-               @{Html.RenderAction("AddPV", "ToDoList");}
+               @{Html.RenderAction("AddPV", "Home");}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
