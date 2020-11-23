@@ -26,12 +26,6 @@
                 return response;
             }
         }
-        //,
-        //"createdRow": function (row, data) {
-        //    if (data.IsDone) {
-        //        $(row).css('background-color', 'limegreen');
-        //    }
-        //}
     });
 };
 $(document).ready(function () {
